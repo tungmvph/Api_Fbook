@@ -8,9 +8,11 @@ const Book=function(Book){
     this.PublishYear=Book.PublishYear;
     this.PriceBook=Book.PriceBook;
     this.Discription=Book.Discription;
-    this.ImageBook=Book.ImageBook
+    this.ImageBook=Book.ImageBook;
+    this.isLike=Book.isLike;
     this.IDCat=Book.IDCat;
     this.IDBookInfor=Book.IDBookInfor;
+
 }
 
 Book.get_all=function(result){
@@ -56,7 +58,7 @@ Book.create=function(data,result){
    });
 }
 Book.update=function(array,result){
-    db.query("UPDATE Book SET BookName=?,Author=?,PublishYear=?,PriceBook=?,Discription=?,ImageBook=?,IDCat=?,IDBookInfor=? WHERE IDBook=?", [array.BookName, array.Author, array.PublishYear, array.PriceBook, array.Discription, array.ImageBook, array.IDCat, array.IDBookInfor, array.IDBook], function (err, updateResult) {
+    db.query("UPDATE Book SET BookName=?,Author=?,PublishYear=?,PriceBook=?,Discription=?,ImageBook=?,isLike=?,IDCat=?,IDBookInfor=? WHERE IDBook=?", [array.BookName, array.Author, array.PublishYear, array.PriceBook, array.Discription, array.ImageBook,array.isLike,array.IDCat, array.IDBookInfor, array.IDBook], function (err, updateResult) {
 
         if(err){
             result(null);
